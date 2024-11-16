@@ -196,6 +196,9 @@ def open_website(command):
     elif 'open instagram' in command:
         speak("Opening Instagram")
         webbrowser.open("https://www.instagram.com")
+    elif 'open whatsapp' in command:
+        speak("Opening Whatsapp")
+        webbrowser.open("https://www.whatsapp.com")
     elif 'open discord' in command:
         speak("Opening Discord")
         webbrowser.open("https://www.discord.com")
@@ -258,7 +261,7 @@ def main():
     if query != "None":
         if any(kw in query for kw in [
             'open youtube', 'open google', 'open stack overflow', 'open instagram',
-            'open discord', 'open facebook', 'open amazon', 'open flipkart',
+            'open discord', 'open facebook', 'open amazon', 'open flipkart', 'open whatsapp'
             'open spotify', 'open steam', 'open google classroom', 'open google mail', 
             'open gmail', 'open telegram', 'open netflix', 'open amazon prime', 'open chatgpt']):
             open_website(query)
