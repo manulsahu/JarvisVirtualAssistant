@@ -12,48 +12,50 @@ import ctypes
 import subprocess
 import hashlib
 
-# Set this value to the correct path of the current executable
-def get_executable_path():
-    if hasattr(sys, "frozen"):
-        # If bundled with PyInstaller, sys.frozen will be True
-        return sys.executable
-    else:
-        return __file__
+# uncomment line 17 to 60 to use checksum while making exe and encryptions
 
-def calculate_checksum(file_path):
-    """Calculate SHA-256 checksum of a file."""
-    sha256_hash = hashlib.sha256()
-    try:
-        with open(file_path, "rb") as f:
-            # Read file in chunks to handle large files
-            for byte_block in iter(lambda: f.read(4096), b""):
-                sha256_hash.update(byte_block)
-        return sha256_hash.hexdigest()
-    except IOError:
-        print("Error reading file for checksum calculation.")
-        sys.exit(1)
+# # Set this value to the correct path of the current executable
+# def get_executable_path():
+#     if hasattr(sys, "frozen"):
+#         # If bundled with PyInstaller, sys.frozen will be True
+#         return sys.executable
+#     else:
+#         return __file__
 
-def verify_checksum():
-    """Verify the checksum of the executable with the expected checksum."""
-    file_path = get_executable_path()
-    current_checksum = calculate_checksum(file_path)
+# def calculate_checksum(file_path):
+#     """Calculate SHA-256 checksum of a file."""
+#     sha256_hash = hashlib.sha256()
+#     try:
+#         with open(file_path, "rb") as f:
+#             # Read file in chunks to handle large files
+#             for byte_block in iter(lambda: f.read(4096), b""):
+#                 sha256_hash.update(byte_block)
+#         return sha256_hash.hexdigest()
+#     except IOError:
+#         print("Error reading file for checksum calculation.")
+#         sys.exit(1)
 
-    # Read the expected checksum from an external file
-    try:
-        with open("checksum.txt", "r") as f:
-            expected_checksum = f.read().strip()
-    except IOError:
-        print("Error reading checksum file.")
-        sys.exit(1)
+# def verify_checksum():
+#     """Verify the checksum of the executable with the expected checksum."""
+#     file_path = get_executable_path()
+#     current_checksum = calculate_checksum(file_path)
 
-    if current_checksum != expected_checksum:
-        print("Checksum mismatch! The application may have been tampered with.")
-        sys.exit(1)
-    else:
-        print("Checksum verification passed. Application is secure.")
+#     # Read the expected checksum from an external file
+#     try:
+#         with open("checksum.txt", "r") as f:
+#             expected_checksum = f.read().strip()
+#     except IOError:
+#         print("Error reading checksum file.")
+#         sys.exit(1)
 
-# Call this function at the beginning of your script
-verify_checksum()
+#     if current_checksum != expected_checksum:
+#         print("Checksum mismatch! The application may have been tampered with.")
+#         sys.exit(1)
+#     else:
+#         print("Checksum verification passed. Application is secure.")
+
+# # Call this function at the beginning of your script
+# verify_checksum()
 
 #END OF VERIFY CHECKSUMS
 
