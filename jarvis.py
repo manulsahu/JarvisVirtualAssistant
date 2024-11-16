@@ -263,8 +263,9 @@ def main():
     if query != "None":
         if any(kw in query for kw in [
             'open youtube', 'open google', 'open stack overflow', 'open instagram',
-            'open discord', 'open facebook', 'open amazon', 'open flipkart', 'open whatsapp'
+            'open discord', 'open facebook', 'open amazon', 'open flipkart', 'open whatsapp',
             'open spotify', 'open steam', 'open google classroom', 'open google mail', 
+            
             'open gmail', 'open telegram', 'open netflix', 'open amazon prime', 'open chatgpt']):
             open_website(query)
         elif any(kw in query for kw in [
