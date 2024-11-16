@@ -200,7 +200,7 @@ def open_website(command):
         webbrowser.open("https://www.instagram.com")
     elif 'open whatsapp' in command:
         speak("Opening Whatsapp")
-        webbrowser.open("https://www.whatsapp.com")
+        webbrowser.open("https://web.whatsapp.com")
     elif 'open discord' in command:
         speak("Opening Discord")
         webbrowser.open("https://www.discord.com")
