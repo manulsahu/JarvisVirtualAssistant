@@ -9,5 +9,5 @@ def calculate_checksum(file_path):
     return sha256_hash.hexdigest()
 
 # Replace 'your_main_script.py' with the actual path of your main script
-file_path = "enhancedkw.py"
+file_path = "jarvis.py"
 print("Checksum for file:", calculate_checksum(file_path))
